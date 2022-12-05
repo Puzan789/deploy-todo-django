@@ -1,0 +1,46 @@
+{% extends 'todo/main.html' %} {% block content %}
+<div class="container border border-danger mt-5">
+  {% if request.user.is_authenticated %}
+  <h1 class="text-center" style="font-family:head;"> Hello <p style="font-family:head;"> {{request.user}}</p></h1>
+  <div class="container"></div>
+  <a href="{% url 'logout' %}">logout</a>
+  {% else %}
+  <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+
+  <h1>To do list</h1>
+  <a href=" {% url 'taskcreate' %}" class="text-decoration">Add task</a>
+    
+  <div class="container-3">
+    <form action="" method="GET" class="d-flex">
+      <input class="form-control me-2" type="text"name="search-area" id="" value="{{search_input}}" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit" value="search" >Search</button>
+    </form>
+  </div>
+</nav>
+  </form>
+  <div class="container">
+    <table>
+      <tr>
+        <th>items</th>
+        <th class="ml-2"></th>
+        <th></th>
+      </tr>
+
+      {% for task in tasks %}
+      <tr>
+        <td>{{task.title}}</td>
+        <td>
+          <a href="{% url 'task' task.id %}" class="mx-auto"> View</a>
+        </td>
+        <td><a href="{% url 'taskupdate' task.id %}"> Update</a></td>
+        <td><a href="{% url 'taskdelete' task.id %}"> Delete</a></td>
+      </tr>
+      {% empty %}
+      <h3>no items</h3>
+
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock content %}

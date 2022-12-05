@@ -1,0 +1,9 @@
+{% extends 'todo/main.html' %}
+{% block content %}  
+<a href="{% url 'index' %}"></a>
+<form action="" method="post">
+  {% csrf_token %}
+  <p>Are you sure wanna delete? {{task}}</p>
+  <input type="submit" value="delete" />
+</form>
+{% endblock content %}

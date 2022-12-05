@@ -1,0 +1,24 @@
+{% extends 'todo/main.html' %}
+{% block content %}
+    
+
+ <section class="h-100 h-custom">
+      <div class="container py-5 h-100" >
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-8 col-xl-6" >
+              <div class="card-body rounded-3 p-4 p-md-5 border-4 border-primary shadow-lg p-3 mb-5 bg-white rounded">
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2 ">
+                  Registration
+                </h3>
+          <form action="" method="post">
+            {% csrf_token %} {{form.as_p}}
+            <button type="submit"class="btn btn-outline-success" >Login</button>
+          </form>
+          <p class="small fw-bold mt-2 pt-1 mb-0">
+                  create account  ?
+                  <a href="{% url 'register' %}" class="link-danger">Register</a>
+                </p>
+      </div>
+     </div>
+    </div>
+{% endblock content  %}>
